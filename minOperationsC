@@ -1,0 +1,23 @@
+public class minOperationsC {
+    public static int minOperations(String[] logs) {
+        int q = 0;
+        for (int a = 0; a < logs.length;a++){
+            if (logs[a].charAt(0) != '.') {
+                q++;
+                continue;
+            }
+            if (logs[a].charAt(1) == '.' && logs[a].charAt(0) == '.' && q > 0) {
+               q--;
+            }
+        }
+        return  q;
+    }
+
+    public static void main(String[] args) {
+        String[] q = {"d1/","d2/","../","d21/","./"};
+        int a = minOperations(q);
+        System.out.println(a);
+    }
+
+}
+//1598. Crawler Log Folder
