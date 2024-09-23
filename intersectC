@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+public class intersectC {
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        int num = 0;
+        ArrayList<Integer> da = new ArrayList<>();
+        for (int i = 0; i < nums1.length;i++){
+            for (int ii = 0; ii < nums2.length;ii++){
+                if (nums1[i] == nums2[ii]){
+                    da.add(nums1[i]);
+                    nums2[ii] = -9999999;
+                    break;
+                }
+            }
+        }
+        int[] intArray = new int[da.size()];
+        for (int i = 0; i < da.size(); i++) {
+            intArray[i] = da.get(i);
+        }
+        return intArray;
+    }
+
+    public static void main(String[] args) {
+
+        int[] customers = {1,2,2,1};
+        int[] grumpy = {2,2};
+        int[] q = intersect(customers,grumpy);
+        for (int value : q) {
+            System.out.println(value);
+        }
+    }
+
+}
+
+//350. Intersection of Two Arrays II
