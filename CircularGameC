@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class CircularGameC {
+    public static int findTheWinner(int n, int k) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            list.add(i);
+        }
+        int q = 0;
+        while (list.size() != 1) {
+            for (int i = 1; i < k; i++) {
+                if (q >= list.size() - 1) {
+                    q = 0;
+                } else {
+                    q++;
+                }
+            }
+            list.remove(q);
+            if (q > list.size() - 1) {
+                q =0;
+            }
+        }
+        return list.get(0);
+    }
+
+    public static void main(String[] args) {
+        int a = findTheWinner(5, 2);
+        System.out.println(a);
+    }
+}
+//1823. Find the Winner of the Circular Game
