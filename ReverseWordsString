@@ -1,0 +1,24 @@
+#557. Reverse Words in a String III
+
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder res = new StringBuilder();
+        int l = 0, r = 0;
+
+        while (r < s.length()) {
+            if (s.charAt(r) != ' ') {
+                r++;
+            } else {
+                res.append(new StringBuilder(s.substring(l, r)).reverse());
+                res.append(' '); // Adicionando um espaço após a palavra invertida
+                r++;
+                l = r;
+            }
+        }
+
+        // Para a última palavra
+        res.append(new StringBuilder(s.substring(l, r)).reverse());
+        
+        return res.toString();
+    }
+}
